@@ -1,15 +1,28 @@
-# Basic Sample Hardhat Project
+# NTF Platzi Punk
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+This project create ia a Smart Contract that generate a ramdon character avatar using https://avataaars
 
-Try running some of the following tasks:
+## Installation, Setup and deploy
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+To install node modules
+
+```bash
+npm install
 ```
+
+Set Ethereum Node Url and Private Key in .env (see .env.emxple)
+
+```bash
+ETHEREUM_PRIVATE_KEY=
+ETHEREUM_NODE_URL=
+```
+
+Compile and deploy the Smart Contract (with hardhat: https://hardhat.org/getting-started/)
+
+```bash
+npx hardhat compile
+npx hardhat run scripts/deploy.js --network ethereum
+```
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
