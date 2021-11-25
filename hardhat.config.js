@@ -1,23 +1,18 @@
 require("@nomiclabs/hardhat-waffle");
 require('dotenv').config();
 
-const INFURA_TOKEN_RPC = process.env.INFURA_TOKEN_RPC;
-const PRIVATE_KEY = process.env.PRIVATE_KEY;
+const ETHEREUM_NODE_URL = process.env.ETHEREUM_NODE_URL;
+const ETHEREUM_PRIVATE_KEY = process.env.ETHEREUM_PRIVATE_KEY;
 
 module.exports = {
   solidity: "0.8.4",
   networks: {
-    ropsten:{
-      url: `https://ropsten.infura.io/v3/${INFURA_TOKEN_RPC}`,
+    ethereum:{
+      url: ETHEREUM_NODE_URL,
       accounts: [
-        PRIVATE_KEY
+        ETHEREUM_PRIVATE_KEY
       ]
     },
-    rinkeby:{
-      url: `https://rinkeby.infura.io/v3/${INFURA_TOKEN_RPC}`,
-      accounts: [
-        PRIVATE_KEY
-      ]
-    }
+  
   }
 };
