@@ -88,9 +88,9 @@ contract PlatziPunks is ERC721, ERC721Enumerable, DNA {
 
         string memory jsonURI = Base64.encode(
             abi.encodePacked(
-                '{ "name": "Platzi Punks #"', tokenId.toString(), ',',
+                '{ "name": "Platzi Punks #', tokenId.toString(), '",',
                 '"description": "Platzi Punks - Introduccion al desarrollo de dapp",',
-                '"image": ', image,
+                '"image": ', '"', image,'"',
                 '}'
             )
         );

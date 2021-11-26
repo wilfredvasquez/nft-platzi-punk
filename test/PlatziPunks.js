@@ -42,4 +42,27 @@ describe('Platzi Punks Contract', () => {
             await expect(deployed.mint()).to.be.revertedWith("No Platzi Punks left")
         });
     });
+
+    describe("tokenURI", () => {
+        it("returns valid metadata", async () => {
+          const { deployed } = await setup({});
+  
+          await deployed.mint();
+  
+          const tokenURI = await deployed.tokenURI(0);
+          const stringifiedTokenURI = await tokenURI.toString();
+          const [, base64JSON] = stringifiedTokenURI.split(
+            "data:application/json;base64,"
+          );
+          const stringifiedMetadata = await Buffer.from(
+            base64JSON,
+            "base64"
+          ).toString("ascii");
+
+          const metadata = JSON.parse(stringifiedMetadata);
+  
+          expect(metadata).to.have.all.keys("name", "description", "image");
+        });
+    });
+
 })
