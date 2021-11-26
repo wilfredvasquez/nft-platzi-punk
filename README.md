@@ -24,5 +24,10 @@ npx hardhat compile
 npx hardhat run scripts/deploy.js --network ethereum
 ```
 
+Generate only one contract
+```bash
+npx hardhat flatten > contracts/Flattened.sol
+```
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
